@@ -2,8 +2,9 @@
 
 import { program } from 'commander';
 
-program.description('Compares two configuration files and how a difference.');
-
-program.version('1.0.0');
-
-program.parse();
+program
+  .arguments('<filepath1> <filepath2>')
+  .description('Compares two configuration files and how a difference.')
+  .version('1.0.0')
+  .option('-f, --format [type]', 'output format')
+  .parse();
