@@ -1,4 +1,4 @@
-import genDiff from '../src/index.js';
+import genDiff from '../src/gendiff.js';
 
 const getDiff = (format) => genDiff(
   `__tests__/examples/before.${format}`,
