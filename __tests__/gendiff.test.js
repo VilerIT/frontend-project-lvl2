@@ -1,9 +1,17 @@
+import { fileURLToPath } from 'url';
+import path, { dirname } from 'path';
 import genDiff from '../src/gendiff.js';
 
-const getDiff = (format) => genDiff(
-  `__tests__/examples/before.${format}`,
-  `__tests__/examples/after.${format}`,
-);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const getDiff = (format) => {
+  const pathToFixtures = path.join(__dirname, '..', '__fixtures__');
+  return genDiff(
+    path.join(pathToFixtures, `before.${format}`),
+    path.join(pathToFixtures, `after.${format}`),
+  );
+};
 
 describe('genDiff', () => {
   test('JSON', () => {
