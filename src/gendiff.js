@@ -1,16 +1,8 @@
-import fs from 'fs';
-import path from 'path';
 import _ from 'lodash';
 import { parseJson } from './parsers.js';
+import readFile from './readfile.js';
 
 const tab = '  ';
-
-const readFile = (pathToFile) => {
-  const workingDir = process.cwd();
-  const absPath = path.resolve(workingDir, pathToFile);
-
-  return fs.readFileSync(absPath, 'utf-8');
-};
 
 const genDiff = (path1, path2) => {
   const diff = [];
