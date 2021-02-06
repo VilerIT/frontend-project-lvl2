@@ -10,7 +10,7 @@ const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', 
 
 describe('genDiff', () => {
   test('JSON', () => {
-    const expected = fs.readFileSync(getFixturePath('expected-json.txt')).toString();
+    const expected = fs.readFileSync(getFixturePath('expected-json.txt'), 'utf-8').toString();
 
     const actual = genDiff(getFixturePath('before.json'), getFixturePath('after.json'));
     expect(actual).toEqual(expected);

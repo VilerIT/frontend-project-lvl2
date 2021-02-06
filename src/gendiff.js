@@ -9,7 +9,7 @@ const readFile = (pathToFile) => {
   const workingDir = process.cwd();
   const absPath = path.resolve(workingDir, pathToFile);
 
-  return fs.readFileSync(absPath);
+  return fs.readFileSync(absPath, 'utf-8');
 };
 
 const genDiff = (path1, path2) => {
