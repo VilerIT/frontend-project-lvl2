@@ -3,6 +3,8 @@ import path from 'path';
 import _ from 'lodash';
 import { parseJson } from './parsers.js';
 
+const tab = '  ';
+
 const readFile = (pathToFile) => {
   const workingDir = process.cwd();
   const absPath = path.resolve(workingDir, pathToFile);
@@ -38,9 +40,9 @@ const genDiff = (path1, path2) => {
       }
     });
 
-  const diffStr = diff.join('\n\t');
+  const diffStr = diff.join(`\n${tab}`);
 
-  return `{\n\t${diffStr}\n}`;
+  return `{\n${tab}${diffStr}\n}`;
 };
 
 export default genDiff;
