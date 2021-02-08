@@ -6,7 +6,7 @@
 
 This utility is made to compare two files and print the difference between them. You can use it as a library in your JavaScript code as well.
 
-Only flat JSON files are yet supported.
+Only flat JSON and flat YAML files are yet supported.
 
 ## Setup
 
@@ -49,3 +49,7 @@ const genDiff = require('@hexlet/code');
 ### Flat JSON
 
 [![asciicast](https://asciinema.org/a/O3DMvYcqoqodoZZX1BbI1hcaQ.svg)](https://asciinema.org/a/O3DMvYcqoqodoZZX1BbI1hcaQ)
+
+### Flat YAML
+
+[![asciicast](https://asciinema.org/a/FvwfblIR9mOhBCAnM00ladXXB.svg)](https://asciinema.org/a/FvwfblIR9mOhBCAnM00ladXXB)
