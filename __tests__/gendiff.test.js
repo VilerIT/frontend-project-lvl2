@@ -9,7 +9,7 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 
 describe('genDiff', () => {
-  const expected = readFile(getFixturePath('expected.txt')).toString();
+  const expected = readFile(getFixturePath('expected.txt'));
 
   test.each(['json', 'yml'])('%s', (extension) => {
     const actual = genDiff(getFixturePath(`before.${extension}`), getFixturePath(`after.${extension}`));
