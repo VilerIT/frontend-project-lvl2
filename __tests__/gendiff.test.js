@@ -13,6 +13,6 @@ describe('genDiff', () => {
 
   test.each(['json', 'yml'])('%s', (extension) => {
     const actual = genDiff(getFixturePath(`before.${extension}`), getFixturePath(`after.${extension}`));
-    expect(actual).toEqual(expected);
+    expect(actual).toBe(expected);
   });
 });

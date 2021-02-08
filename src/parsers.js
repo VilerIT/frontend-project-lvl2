@@ -1,2 +1,5 @@
-// eslint-disable-next-line import/prefer-default-export
-export const parseJson = (text) => JSON.parse(text);
+import yaml from 'js-yaml';
+
+export const parseJson = (content) => JSON.parse(content);
+
+export const parseYaml = (content) => yaml.load(content);
