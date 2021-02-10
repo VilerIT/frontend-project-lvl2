@@ -6,7 +6,9 @@
 
 This utility is made to compare two files and print the difference between them. You can use it as a library in your JavaScript code as well.
 
-Only flat JSON and flat YAML files are yet supported.
+Only JSON and YAML files are yet supported.
+
+*Note*: you can compare files with different extensions, e.g. you can compare ``before.yml`` and ``after.json``.
 
 ## Setup
 
@@ -44,12 +46,28 @@ or
 const genDiff = require('@hexlet/code');
 ```
 
+## Formats
+
+List of formats - "stylish". (only one yet)
+
+Stylish is used by default, but if you want to change it, run:
+
+```sh
+gendiff [filepath1] [filepath2] -f <your format here>
+```
+
+or, if you use this project as a library, run genDiff with following parameters:
+
+```js
+genDiff('[filepath1]', '[filepath2]', '<your format here>');
+```
+
 ## Demonstration
 
-### Flat JSON
+### JSON
 
-[![asciicast](https://asciinema.org/a/O3DMvYcqoqodoZZX1BbI1hcaQ.svg)](https://asciinema.org/a/O3DMvYcqoqodoZZX1BbI1hcaQ)
+[![asciicast](https://asciinema.org/a/bcqipB5pnps8DkZCTtJV83mMw.svg)](https://asciinema.org/a/bcqipB5pnps8DkZCTtJV83mMw)
 
-### Flat YAML
+### YAML
 
-[![asciicast](https://asciinema.org/a/FvwfblIR9mOhBCAnM00ladXXB.svg)](https://asciinema.org/a/FvwfblIR9mOhBCAnM00ladXXB)
+[![asciicast](https://asciinema.org/a/uMnQ0sEOB229PAkzSJrQ1R92A.svg)](https://asciinema.org/a/uMnQ0sEOB229PAkzSJrQ1R92A)
