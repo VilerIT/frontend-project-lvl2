@@ -46,10 +46,8 @@ const formatStylish = (ast) => {
       });
 
     const endTab = '  '.repeat(depth - 1);
-    const entryStart = `{${lineStart}`;
-    const entryEnd = `\n${endTab}}`;
 
-    return `${entryStart}${result.join(lineStart)}${entryEnd}`;
+    return `{${lineStart}${result.join(lineStart)}\n${endTab}}`;
   };
 
   return iter(ast, 1);
