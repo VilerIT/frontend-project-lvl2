@@ -6,7 +6,7 @@
 
 This utility is made to compare two files and print the difference between them. You can use it as a library in your JavaScript code as well.
 
-Only JSON and YAML files are yet supported.
+JSON and YAML files are supported.
 
 *Note*: you can compare files with different extensions, e.g. you can compare ``before.yml`` and ``after.json``.
 
