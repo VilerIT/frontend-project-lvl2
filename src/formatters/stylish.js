@@ -24,26 +24,25 @@ const formatStylish = (ast) => {
     const tab = '  '.repeat(depth);
     const lineStart = `\n${tab}`;
 
-    const result = properties
-      .flatMap((property) => {
-        const { key, value, status } = property;
-        const keyValue = propertyToString(key, value, depth + 1);
+    const result = properties.flatMap((property) => {
+      const { key, value, status } = property;
+      const keyValue = propertyToString(key, value, depth + 1);
 
-        switch (status) {
-          case 'removed':
-            return `- ${keyValue}`;
-          case 'updated':
-            return [`- ${propertyToString(key, property.oldValue, depth + 1)}`, `+ ${keyValue}`];
-          case 'unchanged':
-            return `  ${keyValue}`;
-          case 'nested':
-            return `  ${key}: ${iter(property.children, depth + 2)}`;
-          case 'added':
-            return `+ ${keyValue}`;
-          default:
-            throw new Error('Unknown status name.');
-        }
-      });
+      switch (status) {
+        case 'removed':
+          return `- ${keyValue}`;
+        case 'updated':
+          return [`- ${propertyToString(key, property.oldValue, depth + 1)}`, `+ ${keyValue}`];
+        case 'unchanged':
+          return `  ${keyValue}`;
+        case 'nested':
+          return `  ${key}: ${iter(property.children, depth + 2)}`;
+        case 'added':
+          return `+ ${keyValue}`;
+        default:
+          throw new Error('Unknown status name.');
+      }
+    });
 
     const endTab = '  '.repeat(depth - 1);
 
