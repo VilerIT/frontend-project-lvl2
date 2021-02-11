@@ -48,7 +48,7 @@ const genDiff = require('@hexlet/code');
 
 ## Formats
 
-List of formats - "stylish" and "plain".
+List of formats - "stylish", "plain", and "json".
 
 Stylish is used by default, but if you want to change it, run:
 
