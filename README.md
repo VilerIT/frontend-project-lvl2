@@ -75,3 +75,7 @@ genDiff('[filepath1]', '[filepath2]', '<your format here>');
 ### Plain format
 
 [![asciicast](https://asciinema.org/a/qRTAD5gfZuBxF2b6kkQVkEC9Q.svg)](https://asciinema.org/a/qRTAD5gfZuBxF2b6kkQVkEC9Q)
+
+### JSON format
+
+[![asciicast](https://asciinema.org/a/Ohj5UsBSXEIFuUpUxrpiLnTh5.svg)](https://asciinema.org/a/Ohj5UsBSXEIFuUpUxrpiLnTh5)
