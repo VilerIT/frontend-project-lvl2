@@ -27,7 +27,7 @@ const formatPlain = (ast) => {
           case 'unchanged':
             return null;
           case 'nested':
-            return iter(value, [...path, key]);
+            return iter(property.children, [...path, key]);
           case 'added':
             return `Property '${pathToProperty}' was added with value: ${valueToString(value)}`;
           default:

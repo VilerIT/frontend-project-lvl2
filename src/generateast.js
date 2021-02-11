@@ -17,10 +17,7 @@ const generateAst = (obj1, obj2) => {
       } else if (_.isEqual(value1, value2)) {
         entry.status = 'unchanged';
       } else if (_.isObject(obj1[key]) && _.isObject(obj2[key])) {
-        const children = generateAst(obj1[key], obj2[key]);
-
-        entry.status = 'nested';
-        entry.value = children;
+        return { key, children: generateAst(value1, value2), status: 'nested' };
       } else if (!_.isEqual(value1, value2)) {
         entry.status = 'updated';
         entry.oldValue = value1;

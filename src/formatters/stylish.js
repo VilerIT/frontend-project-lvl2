@@ -37,7 +37,7 @@ const formatStylish = (ast) => {
           case 'unchanged':
             return `  ${keyValue}`;
           case 'nested':
-            return `  ${key}: ${iter(value, depth + 2)}`;
+            return `  ${key}: ${iter(property.children, depth + 2)}`;
           case 'added':
             return `+ ${keyValue}`;
           default:
