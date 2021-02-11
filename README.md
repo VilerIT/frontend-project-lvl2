@@ -48,7 +48,7 @@ const genDiff = require('@hexlet/code');
 
 ## Formats
 
-List of formats - "stylish". (only one yet)
+List of formats - "stylish" and "plain".
 
 Stylish is used by default, but if you want to change it, run:
 
@@ -71,3 +71,7 @@ genDiff('[filepath1]', '[filepath2]', '<your format here>');
 ### YAML
 
 [![asciicast](https://asciinema.org/a/uMnQ0sEOB229PAkzSJrQ1R92A.svg)](https://asciinema.org/a/uMnQ0sEOB229PAkzSJrQ1R92A)
+
+### Plain format
+
+[![asciicast](https://asciinema.org/a/qRTAD5gfZuBxF2b6kkQVkEC9Q.svg)](https://asciinema.org/a/qRTAD5gfZuBxF2b6kkQVkEC9Q)
