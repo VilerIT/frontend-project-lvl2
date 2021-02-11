@@ -3,19 +3,19 @@ import formatPlain from './plain.js';
 import formatJson from './json.js';
 
 const formatAst = (ast, formatType) => {
-  let format;
-
   if (formatType === 'stylish') {
-    format = formatStylish;
-  } else if (formatType === 'plain') {
-    format = formatPlain;
-  } else if (formatType === 'json') {
-    format = formatJson;
-  } else {
-    return `Unknown format: ${formatType}`;
+    return formatStylish(ast);
   }
 
-  return format(ast);
+  if (formatType === 'plain') {
+    return formatPlain(ast);
+  }
+
+  if (formatType === 'json') {
+    return formatJson(ast);
+  }
+
+  return `Unknown format: ${formatType}`;
 };
 
 export default formatAst;
