@@ -13,7 +13,7 @@ const generateAst = (obj1, obj2) => {
         entry.status = 'added';
         entry.value = value2;
       } else if (_.has(obj1, key) && !_.has(obj2, key)) {
-        entry.status = 'deleted';
+        entry.status = 'removed';
       } else if (_.isEqual(value1, value2)) {
         entry.status = 'unchanged';
       } else if (_.isObject(obj1[key]) && _.isObject(obj2[key])) {
@@ -22,7 +22,7 @@ const generateAst = (obj1, obj2) => {
         entry.status = 'nested';
         entry.value = children;
       } else if (!_.isEqual(value1, value2)) {
-        entry.status = 'edited';
+        entry.status = 'updated';
         entry.oldValue = value1;
         entry.value = value2;
       }

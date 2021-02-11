@@ -2,9 +2,9 @@ import path from 'path';
 import readFile from './src/readfile.js';
 import generateAst from './src/generateast.js';
 import parse from './src/parsers.js';
-import stylish from './src/formatters.js';
+import format from './src/formatters/index.js';
 
-const genDiff = (path1, path2, format = 'stylish') => {
+const genDiff = (path1, path2, formatType = 'stylish') => {
   const ext1 = path.extname(path1);
   const ext2 = path.extname(path2);
 
@@ -20,11 +20,7 @@ const genDiff = (path1, path2, format = 'stylish') => {
 
   const ast = generateAst(obj1, obj2);
 
-  if (format === 'stylish') {
-    return stylish(ast);
-  }
-
-  return 'No such format is found.';
+  return format(ast, formatType);
 };
 
 export default genDiff;

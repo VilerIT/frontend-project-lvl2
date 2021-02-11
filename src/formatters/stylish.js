@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const entryToString = (key, value, depth) => {
+const propertyToString = (key, value, depth) => {
   if (!_.isObject(value)) {
     return `${key}: ${value}`;
   }
@@ -10,7 +10,7 @@ const entryToString = (key, value, depth) => {
   const lineStart = `\n${tab}`;
 
   const result = Object.entries(value)
-    .flatMap(([entryKey, entryValue]) => `  ${entryToString(entryKey, entryValue, depth + 2)}`)
+    .flatMap(([propertyKey, propertyValue]) => `  ${propertyToString(propertyKey, propertyValue, depth + 2)}`)
     .join(lineStart);
 
   const entryStart = `{${lineStart}`;
@@ -19,21 +19,21 @@ const entryToString = (key, value, depth) => {
   return `${key}: ${entryStart}${result}${entryEnd}`;
 };
 
-const stylish = (diff) => {
-  const iter = (entries, depth) => {
+const formatStylish = (ast) => {
+  const iter = (properties, depth) => {
     const tab = '  '.repeat(depth);
     const lineStart = `\n${tab}`;
 
-    const result = entries
-      .flatMap((entry) => {
-        const { key, value, status } = entry;
-        const keyValue = entryToString(key, value, depth + 1);
+    const result = properties
+      .flatMap((property) => {
+        const { key, value, status } = property;
+        const keyValue = propertyToString(key, value, depth + 1);
 
         switch (status) {
-          case 'deleted':
+          case 'removed':
             return `- ${keyValue}`;
-          case 'edited':
-            return [`- ${entryToString(key, entry.oldValue, depth + 1)}`, `+ ${keyValue}`];
+          case 'updated':
+            return [`- ${propertyToString(key, property.oldValue, depth + 1)}`, `+ ${keyValue}`];
           case 'unchanged':
             return `  ${keyValue}`;
           case 'nested':
@@ -41,7 +41,7 @@ const stylish = (diff) => {
           case 'added':
             return `+ ${keyValue}`;
           default:
-            return null;
+            throw new Error('Unknown status name.');
         }
       });
 
@@ -52,7 +52,7 @@ const stylish = (diff) => {
     return `${entryStart}${result.join(lineStart)}${entryEnd}`;
   };
 
-  return iter(diff, 1);
+  return iter(ast, 1);
 };
 
-export default stylish;
+export default formatStylish;
