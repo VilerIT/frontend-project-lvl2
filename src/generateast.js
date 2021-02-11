@@ -3,7 +3,7 @@ import _ from 'lodash';
 const generateAst = (obj1, obj2) => {
   const keys = _.union(Object.keys(obj1), Object.keys(obj2));
 
-  return keys
+  const ast = keys
     .map((key) => {
       const entry = {};
       const value1 = obj1[key];
@@ -29,6 +29,8 @@ const generateAst = (obj1, obj2) => {
 
       return { key, value: value1, ...entry };
     });
+
+  return _.sortBy(ast, (entry) => entry.key);
 };
 
 export default generateAst;
