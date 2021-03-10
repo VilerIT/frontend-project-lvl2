@@ -6,12 +6,16 @@ import genDiff from '../index.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
+const getFixturePath = (filename, type) => path.join(__dirname, '..', '__fixtures__', type, filename);
 
-describe.each(['json', 'yml'])('%s', (extension) => {
+describe.each(['json', 'yml', 'ini'])('%s', (extension) => {
   test.each(['stylish', 'plain', 'json'])('%s', (format) => {
-    const expected = readFile(getFixturePath(`expected-${format}.txt`));
-    const actual = genDiff(getFixturePath(`before.${extension}`), getFixturePath(`after.${extension}`), format);
+    const expected = readFile(getFixturePath(`${format}.txt`, extension));
+    const actual = genDiff(
+      getFixturePath(`before.${extension}`, extension),
+      getFixturePath(`after.${extension}`, extension),
+      format,
+    );
     expect(actual).toBe(expected);
   });
 });
