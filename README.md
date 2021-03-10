@@ -6,7 +6,7 @@
 
 This utility is made to compare two files and print the difference between them. You can use it as a library in your JavaScript code as well.
 
-JSON and YAML files are supported.
+JSON, YAML and INI files are supported.
 
 *Note*: you can compare files with different extensions, e.g. you can compare ``before.yml`` and ``after.json``.
 
@@ -71,6 +71,10 @@ genDiff('[filepath1]', '[filepath2]', '<your format here>');
 ### YAML
 
 [![asciicast](https://asciinema.org/a/uMnQ0sEOB229PAkzSJrQ1R92A.svg)](https://asciinema.org/a/uMnQ0sEOB229PAkzSJrQ1R92A)
+
+### INI
+
+[![asciicast](https://asciinema.org/a/Lw7cjsDobkIPOU7OAnMYkQGid.svg)](https://asciinema.org/a/Lw7cjsDobkIPOU7OAnMYkQGid)
 
 ### Plain format
 
