@@ -47,7 +47,7 @@ const genDiff = require('gendiff');
 
 ## Formats
 
-List of formats - "stylish", "plain", and "json".
+Available formats - stylish, plain, json.
 
 Stylish is used by default, but if you want to change it, run:
 
