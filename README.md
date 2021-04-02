@@ -1,8 +1,7 @@
 # Gendiff
-[![Actions Status](https://github.com/VilerIT/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/VilerIT/frontend-project-lvl2/actions)
-![CI](https://github.com/VilerIT/frontend-project-lvl2/workflows/CI/badge.svg)
-[![Maintainability](https://api.codeclimate.com/v1/badges/cf227cf977c60b70f186/maintainability)](https://codeclimate.com/github/VilerIT/frontend-project-lvl2/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/cf227cf977c60b70f186/test_coverage)](https://codeclimate.com/github/VilerIT/frontend-project-lvl2/test_coverage)
+![CI](https://github.com/VilerIT/gendiff/workflows/CI/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/75a463c491132806ea5f/maintainability)](https://codeclimate.com/github/VilerIT/gendiff/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/75a463c491132806ea5f/test_coverage)](https://codeclimate.com/github/VilerIT/gendiff/test_coverage)
 
 This utility is made to compare two files and print the difference between them. You can use it as a library in your JavaScript code as well.
 
@@ -31,19 +30,19 @@ gendiff -h
 Firstly, install the library as a dependency in your project:
 
 ```sh
-npm install VilerIT/frontend-project-lvl2
+npm install VilerIT/gendiff
 ```
 
 Then, import it into your source code:
 
 ```js
-import genDiff from '@hexlet/code';
+import genDiff from 'gendiff';
 ```
 
 or
 
 ```js
-const genDiff = require('@hexlet/code');
+const genDiff = require('gendiff');
 ```
 
 ## Formats
