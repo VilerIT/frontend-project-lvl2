@@ -1,7 +1,7 @@
 {
-  "name": "@hexlet/code",
+  "name": "gendiff",
   "version": "1.0.0",
-  "description": "\"Gendiff\" project for Hexlet.",
+  "description": "Difference generator for your configuration files.",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VilerIT/frontend-project-lvl2.git"
+    "url": "git+https://github.com/VilerIT/gendiff.git"
   },
   "author": "VilerIT",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/VilerIT/frontend-project-lvl2/issues"
+    "url": "https://github.com/VilerIT/gendiff/issues"
   },
   "bin": {
     "gendiff": "bin/gendiff.js"
@@ -23,7 +23,7 @@
     "testEnvironment": "node",
     "transform": {}
   },
-  "homepage": "https://github.com/VilerIT/frontend-project-lvl2#readme",
+  "homepage": "https://github.com/VilerIT/gendiff#readme",
   "devDependencies": {
     "@jest/globals": "^26.6.2",
     "eslint": "^7.19.0",
