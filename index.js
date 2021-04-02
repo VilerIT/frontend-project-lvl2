@@ -1,6 +1,6 @@
 import path from 'path';
-import readFile from './src/readfile.js';
-import generateAst from './src/generateast.js';
+import readFile from './src/read-file.js';
+import generateAst from './src/generate-ast.js';
 import parse from './src/parsers.js';
 import format from './src/formatters/index.js';
 
