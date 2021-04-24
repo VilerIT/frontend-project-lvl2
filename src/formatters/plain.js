@@ -31,7 +31,7 @@ const formatPlain = (ast) => {
           case 'added':
             return `Property '${pathToProperty}' was added with value: ${valueToString(value)}`;
           default:
-            throw new Error('Unknown status name.');
+            throw new Error(`Unexpected status name: ${status}`);
         }
       });
 

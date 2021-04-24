@@ -40,7 +40,7 @@ const formatStylish = (ast) => {
         case 'added':
           return `+ ${keyValue}`;
         default:
-          throw new Error('Unknown status name.');
+          throw new Error(`Unexpected status name: ${status}`);
       }
     });
 
