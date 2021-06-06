@@ -1,19 +1,28 @@
 import _ from 'lodash';
 
+const prefixes = {
+  added: '+ ',
+  removed: '- ',
+  nested: '  ',
+  unchanged: '  ',
+};
+
 const propertyToString = (key, value, depth) => {
   if (!_.isObject(value)) {
     return `${key}: ${value}`;
   }
 
-  const tab = '  '.repeat(depth + 1);
-  const endTab = '  '.repeat(depth);
-  const lineStart = `\n${tab}`;
+  const tab = '  '.repeat(depth);
+  const endTab = '  '.repeat(depth - 1);
+  const startTab = `\n${tab}`;
 
   const result = Object.entries(value)
-    .flatMap(([propertyKey, propertyValue]) => `  ${propertyToString(propertyKey, propertyValue, depth + 2)}`)
-    .join(lineStart);
+    .flatMap(
+      ([propertyKey, propertyValue]) => `${prefixes.unchanged}${propertyToString(propertyKey, propertyValue, depth + 2)}`,
+    )
+    .join(startTab);
 
-  const entryStart = `{${lineStart}`;
+  const entryStart = `{${startTab}`;
   const entryEnd = `\n${endTab}}`;
 
   return `${key}: ${entryStart}${result}${entryEnd}`;
@@ -26,21 +35,22 @@ const formatStylish = (ast) => {
 
     const result = properties.flatMap((property) => {
       const { key, value, status } = property;
-      const keyValue = propertyToString(key, value, depth + 1);
+      const keyValue = propertyToString(key, value, depth + 2);
 
       switch (status) {
-        case 'removed':
-          return `- ${keyValue}`;
         case 'updated':
-          return [`- ${propertyToString(key, property.oldValue, depth + 1)}`, `+ ${keyValue}`];
-        case 'unchanged':
-          return `  ${keyValue}`;
+          return [
+            `${prefixes.removed}${propertyToString(key, property.oldValue, depth + 2)}`,
+            `${prefixes.added}${keyValue}`,
+          ];
         case 'nested':
-          return `  ${key}: ${iter(property.children, depth + 2)}`;
-        case 'added':
-          return `+ ${keyValue}`;
-        default:
+          return `${prefixes.nested}${key}: ${iter(property.children, depth + 2)}`;
+        default: {
+          if (prefixes[status]) {
+            return `${prefixes[status]}${keyValue}`;
+          }
           throw new Error(`Unexpected status name: ${status}`);
+        }
       }
     });
 
